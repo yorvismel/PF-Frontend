@@ -1,0 +1,18 @@
+.principalContainer {
+  display: flex;
+  margin-left: 50px;
+}
+.containersvg {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+.prueba {
+  width: 110px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.prueba p{
+    margin-left: 10px;
+}
