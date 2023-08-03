@@ -1,11 +1,24 @@
 .principalContainer {
   display: flex;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 .containersvg {
-  margin-right: 15px;
+  margin-right: 5px;
   display: flex;
   align-items: center;
+}
+
+.bi-person-fill {
+  font-size: 2rem;
+  color: white;
+}
+.bi-heart {
+  font-size: 1.5rem;
+  color: white;
+}
+.bi-minecart {margin-left: 20px;
+  font-size: 1.4rem;
+  color: white;
 }
 .prueba {
   width: 110px;
@@ -13,6 +26,7 @@
   flex-direction: row;
   align-items: center;
 }
-.prueba p{
-    margin-left: 10px;
+.prueba p {
+  margin-left: 10px;
+  margin-top: 11px;
 }

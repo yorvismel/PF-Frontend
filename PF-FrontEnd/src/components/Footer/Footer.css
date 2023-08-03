@@ -1,0 +1,58 @@
+.bi-rocket-takeoff {
+  font-size: 2rem;
+  color: white;
+  margin-right: 20px;
+}
+.containerall{
+ padding: 50px;
+}
+.containerFooter {
+  background-color: #232f3e;
+  color: white;
+}
+.containerFooter h3{
+  font-weight: 800;
+}
+.footer-top-data {
+  margin-left: 100px;
+}
+.footer-top-data i {
+  margin-left: 10px;
+}
+.form-control {
+  width: 40px;
+  height: 40px;
+}
+.containerall .input-group {
+  width: 500px;
+  margin-right: 100px;
+}
+
+.input-group-text {
+  height: 40px;
+  background-color: #558d96;
+  color: white;
+  cursor: pointer;
+}
+.input-group-text:hover{
+  background-color: #80cfdb;
+}
+.FooterLinks a {
+  text-decoration: none;
+}
+.statuscon {
+  margin-left: 50px;
+}
+.redes i {
+  color: white;
+
+}
+.redes{
+  font-size: 2rem;
+}
+.Socialicons{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+

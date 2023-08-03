@@ -1,0 +1,37 @@
+.containerMenu {
+  background-color: #113142;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.containerMenu p {
+  color: white;
+  margin-left: 30px;
+  text-decoration: none;
+}
+.arro {
+  display: flex;
+  margin-top: 10px;
+}
+.link {
+  text-decoration: none;
+}
+.bi-three-dots {
+  margin-right: 10px;
+}
+.dropdown {
+  margin-left: 100px;
+
+}
+.dropdown ul{
+  background-color: #131921;
+  
+}
+.dropdown a{
+  color: white;
+
+}
+.dropdown a:hover{
+  background-color: #2d2e30;
+  color: white;
+}
