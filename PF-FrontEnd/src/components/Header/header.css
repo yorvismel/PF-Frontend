@@ -1,6 +1,6 @@
 /* Estilos base */
 .containerHeader {
-  background-color: #0d2557;
+  background-color: #0D2532;
   display: flex;
   align-items: center;
   width: 100%;
@@ -16,7 +16,7 @@
 }
 
 .logo {
-  margin-left: 40px;
+  margin-left: 60px;
 }
 
 /* Estilos para pantallas más pequeñas */
