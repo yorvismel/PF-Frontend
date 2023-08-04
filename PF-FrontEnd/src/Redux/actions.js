@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:3001";
+const URL = "https://pf-backend-nwu9.onrender.com";
 const PRODUCTS = "products";
 
 export const GET_PRODUCTS = "GET_PRODUCTS";

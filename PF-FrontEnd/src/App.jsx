@@ -12,16 +12,13 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div>
-       <Header />
-       <HeaderMenu />
-       <HomePage />
-       <Footer />
-      
+      <Header />
+      <HeaderMenu />
+      <HomePage />
       <Routes>
-       
-        <Route path="/detail/:productId" element={<Detail /> }/> 
-
+        <Route path="/detail/:productId" element={<Detail />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
