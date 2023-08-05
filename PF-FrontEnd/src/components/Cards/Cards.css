@@ -1,9 +1,5 @@
 /* Estilos para el contenedor de las tarjetas */
-div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+
   
   /* Estilos para cada tarjeta */
   .card {

@@ -1,0 +1,21 @@
+/* CSS */
+.SecondLayer-wrapper-2 {
+  background-color: #f5f5f7;
+}
+
+.services {
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+}
+.divprueba img {
+  margin-right: 15px;
+
+}
+.divprueba h6{
+   font-weight: 700;
+   margin-bottom: 0;
+}
+.divprueba p{
+    margin-bottom: 0;
+}
