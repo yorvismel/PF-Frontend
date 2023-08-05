@@ -1,0 +1,30 @@
+.categories {
+  box-shadow: 0 0 10px #0000001a;
+  padding: 15px;
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+}
+.personalizado {
+  width: 150px;
+  margin-bottom: 10px;
+}
+.personalizado2 {
+  width: 100px;
+  margin-bottom: 35px;
+}
+.categories div {
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 325px;
+  height: 100px;
+  padding-top: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px #0000001a;
+  cursor: pointer;
+}
+
+.Home-wrapper-2{
+  margin-bottom: 200px;
+}
