@@ -6,15 +6,15 @@ const Footer = () => {
   return (
     <div className="containerFooter">
       <footer className=" containerall ">
-        <div className="container-xxl">
-          <div className="row">
+        <div className=" container-xxl">
+          <div className="avers">
             <div className="col-5">
-              <div className=" footer-top-data d-flex gap-30 aling-items-center  ">
+              <div className="footer-top-data">
                 <i class="bi bi-rocket-takeoff"></i>
                 <h2>Sign Up for Newsletter </h2>
               </div>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mt-5">
               <input
                 type="text"
                 class="form-control  py-1 "
@@ -22,7 +22,7 @@ const Footer = () => {
                 aria-label="Your Email addres"
                 aria-describedby="basic-addon2"
               />
-              <span class="input-group-text py-2" id="basic-addon2">
+              <span class="input-group-text py-3" id="basic-addon2">
                 subscribe
               </span>
             </div>
@@ -31,8 +31,8 @@ const Footer = () => {
       </footer>
       <footer className="py-4">
         <div className="container-xxl">
-          <div className="  row ">
-            <div className=" statuscon col-4">
+          <div className="row">
+            <div className="statuscon col-5"> 
               <h3>Contact Us</h3>
               <div className="FooterLinks d-flex flex-column">
                 <address className="text-white py-2 mb-1">
@@ -70,8 +70,8 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-3">
-              <h3>Information</h3>
-              <div className="FooterLinks d-flex flex-column">
+              <h3 className="aver">Information</h3>
+              <div className="FooterLinks  d-flex flex-column">
                 <Link className="text-white py-2 mb-1">Privacy policy</Link>
                 <Link className="text-white py-2 mb-1">blogs</Link>
               </div>
