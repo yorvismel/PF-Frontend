@@ -1,3 +1,8 @@
 .store-wrapper {
-  background-color: #eaeaea;
+  background-color: rgb(251, 234, 229);
+  
+}
+.pruebitaFlex{
+    justify-content: flex-start;
+    padding-left: 80px;
 }
