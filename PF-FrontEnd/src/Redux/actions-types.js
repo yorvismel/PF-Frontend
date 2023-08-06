@@ -1,1 +1,3 @@
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const SEARCH_PRODUCT_NAME = "SEARCH_PRODUCT_NAME";
+

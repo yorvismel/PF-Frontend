@@ -10,7 +10,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
   
-console.log("Log de productos del home", products);
+// console.log("Log de productos del home", products);
 
   useEffect(() => {
     dispatch(getProducts());
