@@ -1,21 +1,25 @@
-import React from 'react';
-import './Cards.css';
-import Rating from 'react-rating-stars-component';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from "react";
+import "./Cards.css";
+import Rating from "react-rating-stars-component";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Cards = () => {
   const allProducts = useSelector((state) => state.products);
   const searchProduct = useSelector((state) => state.searchProduct);
- 
 
   // Verificamos si searchProduct es una cadena antes de filtrar
   const searchTerm = searchProduct.trim().toLowerCase();
   const filteredProducts = searchTerm
-    ? allProducts.filter((product) => product.title.toLowerCase().includes(searchTerm))
+    ? allProducts.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm)
+      )
     : allProducts;
 
-  console.log("Filtered Products:", filteredProducts.map((product) => product.title));
+  console.log(
+    "Filtered Products:",
+    filteredProducts.map((product) => product.title)
+  );
 
   const handleRatingChange = (newRating) => {
     // hacer el  código para enviar el review al servidor
@@ -29,12 +33,20 @@ const Cards = () => {
       ) : (
         filteredProducts.map((product) => (
           <div key={product.title} className="card">
-            <Link to={`/detail/${product.id}`} key={product.id} className="card-link">
-              <img src={product.image} alt={product.title} className="card-image" />
+            <Link
+              to={`/detail/${product.id}`}
+              key={product.id}
+              className="card-link"
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="card-image"
+              />
             </Link>
-            <h3 className="card-title">{product.title}</h3>
+            <h3 className="card-title">{product.title}</h3>{" "}
+            <span className="card-price">${product.price}</span>
             <div className="card-footer">
-              <span className="card-price">${product.price}</span>
               <Rating
                 count={5}
                 value={product.rating.rate}
@@ -56,8 +68,6 @@ const Cards = () => {
 };
 
 export default Cards;
-
-
 
 // import React, { useState } from 'react';
 // import Rating from 'react-rating-stars-component';
