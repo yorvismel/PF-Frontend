@@ -1,8 +1,10 @@
 .store-wrapper {
   background-color: rgb(251, 234, 229);
-  
 }
-.pruebitaFlex{
-    justify-content: flex-start;
-    padding-left: 80px;
+.pruebitaFlex {
+  justify-content: flex-start;
+  padding-left: 30px;
+}
+.storecards {
+  margin-left: 30px;
 }

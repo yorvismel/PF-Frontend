@@ -35,6 +35,7 @@ const Store = () => {
     const filteredProducts = allProducts.filter((product) => product.price >= min && product.price <= max);
     setFilteredProducts(filteredProducts);
   }, [minPrice, maxPrice, allProducts]);
+  const products = useSelector((state) => state.products);
 
   return (
     <div className="store-wrapper home-wrapper-2 py-5">

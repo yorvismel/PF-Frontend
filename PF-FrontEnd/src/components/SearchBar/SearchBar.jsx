@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchProductName } from "../../Redux/actions";
+import { Link } from "react-router-dom";
 
 import "./searchBar.css";
 import { FaSearch } from "react-icons/fa";
@@ -15,13 +16,15 @@ const SearchBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Search Term before dispatch:", searchTerm); // Añadido log para verificar el valor de searchTerm antes de enviar la acción
+    console.log("Search Term before dispatch:", searchTerm);
+
     dispatch(searchProductName(searchTerm));
   };
   const searchProduct = useSelector((state) => state.searchProduct); // Obtiene el estado searchProduct del store de Redux
   console.log("Search Product in Header:", searchProduct)
 
-  console.log("Search Term in SearchBar:", searchTerm); // Añadido log para verificar el valor de searchTerm
+  console.log("Search Term in SearchBar:", searchTerm);
+
   return (
     
     <div className="search-bar">
@@ -35,13 +38,18 @@ const SearchBar = () => {
           value={searchTerm}
           onChange={handleChange}
         />
-        <span className="input-group-text py-2" id="basic-addon2" onClick={handleSearch}>
-          <FaSearch />
-        </span>
+        <Link to="/store"> {/* Utiliza el componente Link para la redirección */}
+          <span
+            className="input-group-text py-2"
+            id="basic-addon2"
+            onMouseDown={handleSearch} 
+          >
+            <FaSearch />
+          </span>
+        </Link>
       </div>
     </div>
   );
 };
 
 export default SearchBar;
-

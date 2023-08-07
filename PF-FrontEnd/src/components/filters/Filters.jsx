@@ -22,7 +22,7 @@ const Filters = () => {
   };
 
   return (
-    <>
+    <div className="conainer">
       <div className="filter-cards mb-3">
         <h3 className="filter-title">Shop by categories</h3>
         <ul className="ps-0">
@@ -92,7 +92,7 @@ const Filters = () => {
         </button>
       </div>
       <div className="col-9"></div>
-    </>
+    </div>
   );
 };
 
