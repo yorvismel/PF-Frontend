@@ -15,11 +15,12 @@ const SearchBar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Search Term before dispatch:", searchTerm); // Añadido log para verificar el valor de searchTerm antes de enviar la acción
+    console.log("Search Term before dispatch:", searchTerm);
     dispatch(searchProductName(searchTerm));
   };
 
-  console.log("Search Term in SearchBar:", searchTerm); // Añadido log para verificar el valor de searchTerm
+  console.log("Search Term in SearchBar:", searchTerm);
+
   return (
     <div className="search-bar">
       <div className="input-group mb-3">
@@ -41,4 +42,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
