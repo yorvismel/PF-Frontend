@@ -23,7 +23,7 @@ const Cards = () => {
       )
     : allProducts;
 
-  const itemsPerPage = 8; // Definimos la cantidad de tarjetas por página
+  const itemsPerPage = 15; // Definimos la cantidad de tarjetas por página
   const totalItems = filteredProducts.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
