@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Cards.css';
 import Rating from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../Redux/actions';
 
 const Cards = () => {
+  const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   const searchProduct = useSelector((state) => state.searchProduct);
- 
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   // Verificamos si searchProduct es una cadena antes de filtrar
   const searchTerm = searchProduct.trim().toLowerCase();
@@ -16,6 +21,7 @@ const Cards = () => {
     : allProducts;
 
   console.log("Filtered Products:", filteredProducts.map((product) => product.title));
+  console.log("Received Products:", allProducts); // Agrega este log para verificar los productos recibidos desde el store
 
   const handleRatingChange = (newRating) => {
     // hacer el  código para enviar el review al servidor
@@ -56,6 +62,7 @@ const Cards = () => {
 };
 
 export default Cards;
+
 
 
 
