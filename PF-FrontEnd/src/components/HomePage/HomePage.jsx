@@ -1,5 +1,13 @@
-import React from "react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
+
+import banner1 from "../../img/banner1.jpg";
+import "./homerPage.css";
+import mac from "../../img/lamac.jpg";
+import ipad from "../../img/ipad.jpg";
+import warch from "../../img/elwacho.jpg"
+import auriculares from "../../img/auriculares.jpg"
 
 const HomePage = () => {
  
