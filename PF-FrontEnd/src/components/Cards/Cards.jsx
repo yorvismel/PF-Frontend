@@ -3,7 +3,7 @@ import "./Cards.css";
 import Rating from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from '../../Redux/actions';
+import { fetchProducts } from "../../Redux/actions";
 
 const Cards = () => {
   const dispatch = useDispatch();
@@ -44,35 +44,40 @@ const Cards = () => {
   };
 
   return (
-    <div className="cards-container">
-      {filteredProducts.length === 0 ? (
-        <div className="no-results">No se encontraron productos.</div>
-      ) : (
-        visibleProducts.map((product) => (
-          <div key={product.id} className="card">
-            <Link to={`/detail/${product.id}`} className="card-link">
-              <img src={product.image} alt={product.title} className="card-image" />
-            </Link>
-            <h3 className="card-title">{product.title}</h3>
-            <span className="card-price">${product.price}</span>
-            <div className="card-footer">
-              <Rating
-                count={5}
-                value={product.rating.rate}
-                size={24}
-                onChange={handleRatingChange}
-                a11y={true}
-                isHalf={true}
-                emptyIcon={<i className="far fa-star"></i>}
-                halfIcon={<i className="fa fa-star-half-alt"></i>}
-                fullIcon={<i className="fa fa-star"></i>}
-                activeColor="#ffd700"
-              />
+    <div className="containertodosconstrella">
+      <div className="cards-container">
+        {filteredProducts.length === 0 ? (
+          <div className="no-results">No se encontraron productos.</div>
+        ) : (
+          visibleProducts.map((product) => (
+            <div key={product.id} className="card">
+              <Link to={`/detail/${product.id}`} className="card-link">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="card-image"
+                />
+              </Link>
+              <h3 className="card-title">{product.title}</h3>
+              <span className="card-price">${product.price}</span>
+              <div className="card-footer">
+                <Rating
+                  count={5}
+                  value={product.rating.rate}
+                  size={24}
+                  onChange={handleRatingChange}
+                  a11y={true}
+                  isHalf={true}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
+              </div>
             </div>
-          </div>
-        ))
-      )}
-
+          ))
+        )}
+      </div>{" "}
       <div className="pagination">
         <button
           className="page-button"
@@ -84,7 +89,9 @@ const Cards = () => {
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}
-            className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+            className={`page-button ${
+              currentPage === index + 1 ? "active" : ""
+            }`}
             onClick={() => setCurrentPage(index + 1)}
           >
             {index + 1}
