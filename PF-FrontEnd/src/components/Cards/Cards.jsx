@@ -1,31 +1,37 @@
-/* eslint-disable react/prop-types */
-// import PropTypes from "prop-types";
-import './Cards.css';
-import Rating from 'react-rating-stars-component'
+import React, { useState } from 'react';
+import Rating from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
+import './Cards.css';
+import Pagination from '../Pagination/Pagination';
+
+const itemsPerPage = 12; // Número de productos por página
 
 const Cards = ({ products }) => {
-    console.log(products);
+  const [currentPage, setCurrentPage] = useState(1);
 
-    const handleRatingChange = (newRating) => {
-        //aqui tengo que implementar el codigo para enviar el review al servidor
-        console.log(`El usuario ha revisado con ${newRating} estrellas`);
-      };
+  const handleRatingChange = (newRating) => {
+    // Aquí puedes implementar la lógica para enviar la calificación al servidor
+    console.log(`El usuario ha revisado con ${newRating} estrellas`);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    
     <div className="cards-container">
-      {products.map((product) => (
-        
+      {currentProducts.map((product) => (
         <div key={product.title} className="card">
-             <Link to={`/detail/${product.id}`} key={product.id} className="card-link">
-          <img src={product.image} alt={product.title} className="card-image" />
+          <Link to={`/detail/${product.id}`} className="card-link">
+            <img src={product.image} alt={product.title} className="card-image" />
           </Link>
           <h3 className="card-title">{product.title}</h3>
-          {/* <p className="card-description">{product.description}</p> */}
           <div className="card-footer">
             <span className="card-price">${product.price}</span>
-            {/* <span className="card-rating">{product.rating.rate} ({product.rating.count} reviews)</span> */}
             <Rating
               count={5}
               value={product.rating.rate}
@@ -40,15 +46,15 @@ const Cards = ({ products }) => {
             />
           </div>
         </div>
-        
       ))}
+      <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={products.length}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </div>
-    
   );
 };
-
-// Cards.propTypes = {
-//   products: PropTypes.array.isRequired,
-// };
 
 export default Cards;
