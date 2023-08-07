@@ -59,3 +59,52 @@
 .rating-stars i {
   margin-right: 5px;
 }
+
+/* Estilos para el contenedor de las tarjetas */
+
+  
+  /* Estilos para cada tarjeta */
+  .card {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+  }
+  
+  /* Estilos para la imagen de la tarjeta */
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el título de la tarjeta */
+  .card h3 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Estilos para la descripción de la tarjeta */
+  .card p {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #666;
+  }
+  
+  /* Estilos para el precio de la tarjeta */
+  .card .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Estilos para la clasificación de la tarjeta */
+  .card .rating {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #888;
+  }
+  

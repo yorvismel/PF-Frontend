@@ -1,0 +1,102 @@
+.container-xxl {
+  display: flex;
+}
+
+
+.mainBannerContent {
+  top: 15%;
+  flex-direction: column;
+  display: flex;
+  left: 5%;
+  position: absolute;
+}
+.mainBannerContent h5 {
+  font-size: 45px;
+  line-height: 64px;
+  letter-spacing: -2px;
+  font-weight: 700;
+  padding: 0;
+  text-transform: none;
+}
+.mainBannerContent h4 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #bf4800;
+  margin: 0 0 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.mainBannerContainer {
+  position: relative;
+  margin-left: 15px;
+}
+.mainBannerContent p {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.4;
+  color: #131821;
+}
+.buttonbuysito {
+  margin-top: 10px;
+  background-color: #232f3e;
+  font-size: 20px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+/* aparte */
+
+.container-xxl {
+  display: flex;
+}
+
+.smallBannerContent {
+  top: 15%;
+  flex-direction: column;
+  display: flex;
+  left: 10%;
+  position: absolute;
+}
+.smallBannerContent h5 {
+  font-size: 28px;
+  line-height: 64px;
+  letter-spacing: -2px;
+  font-weight: 600;
+  padding: 0;
+  text-transform: none;
+}
+.smallBannerContent h4 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #bf4800;
+margin-bottom: 0;
+margin-top: 10px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.smallBannerContainer {
+  position: relative;
+}
+.smallBannerContent p {
+  font-size: 15px;
+  font-weight: 200;
+  color: #131821;
+}
+
+.lamac {
+  width: 305px;
+}
+ .row>*{
+      padding-right: calc(var(--bs-gutter-x) * .0);
+    padding-left: calc(var(--bs-gutter-x) * .0);
+} 
+.smallBannerContainer{
+  margin-left: 15px;
+  margin-top: 10px;
+}

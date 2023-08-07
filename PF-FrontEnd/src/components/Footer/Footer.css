@@ -3,18 +3,19 @@
   color: white;
   margin-right: 20px;
 }
-.containerall{
- padding: 50px;
+.containerall {
+  padding: 24px;
 }
 .containerFooter {
   background-color: #232f3e;
   color: white;
 }
-.containerFooter h3{
+.containerFooter h3 {
   font-weight: 800;
 }
 .footer-top-data {
-  margin-left: 100px;
+ display: flex;
+ 
 }
 .footer-top-data i {
   margin-left: 10px;
@@ -34,25 +35,34 @@
   color: white;
   cursor: pointer;
 }
-.input-group-text:hover{
+.input-group-text:hover {
   background-color: #80cfdb;
 }
 .FooterLinks a {
   text-decoration: none;
 }
-.statuscon {
-  margin-left: 50px;
+.aver {
+  margin-bottom: 0;
 }
 .redes i {
   color: white;
-
 }
-.redes{
+.redes {
   font-size: 2rem;
 }
-.Socialicons{
+.Socialicons {
   display: flex;
   align-items: center;
   gap: 30px;
 }
-
+.container-xxl{
+  display: flex;
+  justify-content: center ;
+}
+.avers {
+  display: flex;
+  align-items: center;
+}
+.avers input{
+  margin-bottom: 50px;
+}
