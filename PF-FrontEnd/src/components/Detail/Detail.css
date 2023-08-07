@@ -1,51 +1,82 @@
 /* Detail.css */
-
+.tusabe{
+  background-color: rgb(251, 234, 229);
+padding-top: 100px;
+padding-bottom: 100px;
+}
 .detail-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  background-color: white;
+ 
+}
+
+.detail-image {
+  height: auto;
+ 
+ 
+ 
+}
+.container-img img {
+  width: 400px;
+}
+.container-content-detail {
+  padding-left: 45px;
+  padding-right: 40px;
+}
+
+
+.detail-title {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
   
-  .detail-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .detail-image {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .detail-description {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  
-  .detail-price {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  
-  .detail-rating {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  
-  /* Estilos para el botón de agregar al carrito (si tienes uno) */
-  .detail-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .detail-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.detail-description {
+  font-size: 16px;
+  margin-top: 30px;
+
+}
+
+.detail-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: #b12704;
+  margin-top: 30px;
+}
+.bis{
+ margin-left: 20px;
+}
+.botoncitoaquel .btn{
+  justify-content: center;
+  align-items: center;
+  background-color: #232f3e;
+  padding: 10px 25px;
+  width: 200px;
+  height: 50px;
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none!important;
+  line-height: 18px;
+  border-radius: 19px;
+  margin-top: 20px;
+}
+
+
+.botoncitoaquel{
+  justify-content:center;
+  display: flex;
+}
+
+.detail-rating {
+  font-size: 15px;
+  margin: 0;
+  color: #555;
+  margin-top: 30px;
+}

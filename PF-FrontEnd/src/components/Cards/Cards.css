@@ -1,3 +1,65 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Customize the rating stars as needed */
+/* For example, you can use FontAwesome for the stars icons */
+/* Note: Make sure to include the corresponding font library in your project */
+.rating-stars {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.rating-stars i {
+  margin-right: 5px;
+}
+
 /* Estilos para el contenedor de las tarjetas */
 
   

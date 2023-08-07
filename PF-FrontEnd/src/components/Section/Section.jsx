@@ -29,6 +29,7 @@ const Section = () => {
             <p>cart</p>
           </div>
         </Link>
+        
       </div>
     </div>
   );
