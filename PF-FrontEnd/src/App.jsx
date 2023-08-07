@@ -20,28 +20,56 @@ function App() {
     // Simulate successful login for demonstration purposes
     // In a real application, you would perform actual authentication here
     console.log("Logged in user:", user);
-    setIsLoggedIn(true); 
-    navigate("/home"); 
+    setIsLoggedIn(true);
+    navigate("/home");
   };
 
   return (
     <div className="toditotodito">
       {isLoggedIn && (
-        <>
-          <Header />
-          <HeaderMenu />
-        </>
+        <Routes>
+          <Route
+            path="/detail/:productId"
+            element={
+              <>
+                <Header />
+                <HeaderMenu />
+                <Detail />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/store"
+            element={
+              <>
+                <Header />
+                <HeaderMenu />
+                <Store />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/home"
+            element={
+              <>
+                <Header />
+                <HeaderMenu />
+                <Home />
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
       )}
       <Routes>
         <Route
           path="/"
           element={<Login onLogin={handleLogin} />} // Muestra el componente Login
         />
-        <Route path="/detail/:productId" element={<Detail />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/home" element={<Home />} /> 
       </Routes>
-      <Footer />
     </div>
   );
 }
