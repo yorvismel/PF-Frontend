@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Filters.css";
+import { useSelector } from "react-redux";
 
 const Filters = () => {
+  const allProducts = useSelector((state) => state.products);
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  const handlePriceFilter = () => {
+    // Parsear los valores ingresados a números
+    const min = parseFloat(minPrice);
+    const max = parseFloat(maxPrice);
+
+    // Filtrar los productos por el rango de precios
+    const filteredProducts = allProducts.filter(
+      (product) => product.price >= min && product.price <= max
+    );
+
+    // Hacer algo con los productos filtrados, por ejemplo, actualizar el estado o enviarlos a otro componente
+    console.log("Products filtered by price:", filteredProducts);
+  };
+
   return (
     <>
       <div className="filter-cards mb-3">
@@ -42,30 +61,35 @@ const Filters = () => {
         </div>
       </div>
       <div className="filter-cards mb-3">
-        <h3 className="filter-title">price</h3>
+        <h3 className="filter-title">Price</h3>
         <div className="container-price ">
           <div className="form-floating ">
-            <input 
-            style={{"height":"35px"}}
-              type="email"
+            <input
+              style={{ height: "35px" }}
+              type="number"
               className="form-control"
-              id="floatingInputValue"
+              id="minPrice"
               placeholder=""
-              value=""
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
             />
-            <label for="floatingInputValue">From</label>
+            <label htmlFor="minPrice">From</label>
           </div>
           <div className="form-floating ">
             <input
-              type="email"
+              type="number"
               className="form-control "
-              id="floatingInputValue"
+              id="maxPrice"
               placeholder=""
-              value=""
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
             />
-            <label for="floatingInputValue">to</label>
+            <label htmlFor="maxPrice">To</label>
           </div>
         </div>
+        <button className="btn btn-primary" onClick={handlePriceFilter}>
+          Apply Filter
+        </button>
       </div>
       <div className="col-9"></div>
     </>

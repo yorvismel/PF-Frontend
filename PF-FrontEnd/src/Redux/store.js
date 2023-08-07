@@ -6,6 +6,7 @@ import { persistReducer, persistStore } from "redux-persist";
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+
 const persistConfig = {
   key: "root",
   storage,
@@ -14,7 +15,7 @@ const persistConfig = {
 const persitedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore(
-
+  
   persitedReducer,
   composeEnhancer(applyMiddleware(thunkMiddleware))
 );
