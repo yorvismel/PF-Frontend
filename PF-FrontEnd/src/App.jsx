@@ -12,7 +12,7 @@ import Store from "./components/store/Store";
 
 function App() {
   return (
-    <div>
+    <div className="toditotodito">
       <Header />
       <HeaderMenu />
       <Routes>
