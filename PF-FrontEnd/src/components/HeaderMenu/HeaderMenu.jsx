@@ -12,22 +12,47 @@ const HeaderMenu = () => {
           aria-expanded="false"
         >
           <i class="bi bi-three-dots "></i>
-     Shop categories 
+          Shop categories
         </button>
         <ul class="dropdown-menu  ">
           <li>
             <a class="dropdown-item color-white " href="#">
-              Action
+              Electronics
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-              Another action
+            <a class="dropdown-item mt-2" href="#">
+              jewelery
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
-              Something else here
+            <a class="dropdown-item mt-2" href="#">
+              men's clothing
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item mt-2" href="#">
+              women's clothing
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item mt-2" href="#">
+              Computer & laptops
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item mt-2" href="#">
+              tablets & phones
+            </a>
+          </li>
+          <li> 
+            <a class="dropdown-item mt-2" href="#">
+              headphones
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item mt-2" href="#">
+              accessories{" "}
             </a>
           </li>
         </ul>
