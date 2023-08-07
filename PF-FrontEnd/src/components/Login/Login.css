@@ -1,49 +1,59 @@
 .login-container {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  .input-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .login-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #558d96;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #80cfdb;
-  }
-  
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  margin-left: 400px;
+  height: 50vh;
+  margin-top: 100PX;
+}
+.containertodologin {
+  display: flex;
+}
+.laimagen img {
+  height: 100vh;
+  width: 160%;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #558d96;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #80cfdb;
+}
