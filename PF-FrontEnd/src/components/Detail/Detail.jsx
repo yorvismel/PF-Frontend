@@ -5,9 +5,16 @@ import "./Detail.css";
 export const Detail = () => {
   const { productId } = useParams();
   const products = useSelector((state) => state.products);
-  const product = products.find((p) => p.id === parseInt(productId));
+
+  console.log("Products from Redux:", products); 
+
+  const product = products.find((p) => p.id === productId);
+
+
+  console.log("Selected Product:", product); 
 
   if (!product) {
+    console.log("Product not found"); 
     return <div className="detail-container">Producto no encontrado</div>;
   }
 
