@@ -11,6 +11,7 @@ import { Detail } from "./components/Detail/Detail";
 import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import Create from "./components/Create/Create";
 
 function App() {
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -26,44 +27,54 @@ function App() {
 
   return (
     <div className="toditotodito">
-      {isLoggedIn && (
-        <Routes>
-          <Route
-            path="/detail/:productId"
-            element={
-              <>
-                <Header />
-                <HeaderMenu />
-                <Detail />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/store"
-            element={
-              <>
-                <Header />
-                <HeaderMenu />
-                <Store />
-                <Footer />
-              </>
-            }
-          />
+      <Routes>
+        <Route
+          path="/detail/:productId"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Detail />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/store"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Store />
+              <Footer />
+            </>
+          }
+        />
 
-          <Route
-            path="/home"
-            element={
-              <>
-                <Header />
-                <HeaderMenu />
-                <Home />
-                <Footer />
-              </>
-            }
-          />
-        </Routes>
-      )}
+        <Route
+          path="/home"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Create />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+
       <Routes>
         <Route
           path="/"
