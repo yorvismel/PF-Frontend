@@ -7,12 +7,7 @@ import { useSelector } from 'react-redux';
 const Cards = () => {
   const allProducts = useSelector((state) => state.products);
   const searchProduct = useSelector((state) => state.searchProduct);
-  const [currentPage, setCurrentPage] = useState(1); // Agregamos el estado de la página actual
-console.log();
-  useEffect(() => {
-    console.log("Fetching products...");
-    dispatch(fetchProducts());
-  }, [dispatch]);
+ 
 
   const searchTerm = searchProduct.trim().toLowerCase();
   const filteredProducts = searchTerm

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home/Home"
-import Create from './components/Create/Create'
 import Header from "./components/Header/Header";
 import HeaderMenu from "./components/HeaderMenu/HeaderMenu";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +9,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "./components/Footer/Footer";
 import { Detail } from "./components/Detail/Detail";
 import Store from "./components/store/Store";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Create from "./components/Create/Create";
 
 function App() {
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -26,13 +27,59 @@ function App() {
 
   return (
     <div className="toditotodito">
-      <Header />
-      <HeaderMenu />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/detail/:productId" element={<Detail  />} />
-        <Route path="/store" element={<Store/>}/>
-        <Route path="/cart" element={<Cart />}/>
+        <Route
+          path="/detail/:productId"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Detail />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/store"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Store />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/home"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Home />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/create"
+          element={
+            <>
+              <Header />
+              <HeaderMenu />
+              <Create />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+
+      <Routes>
+        <Route
+          path="/"
+          element={<Login onLogin={handleLogin} />} // Muestra el componente Login
+        />
       </Routes>
     </div>
   );
