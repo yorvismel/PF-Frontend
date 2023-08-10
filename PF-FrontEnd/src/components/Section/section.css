@@ -30,3 +30,13 @@
   margin-left: 10px;
   margin-top: 11px;
 }
+.notification-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  
+}

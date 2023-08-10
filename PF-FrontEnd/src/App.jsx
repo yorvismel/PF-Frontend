@@ -9,6 +9,8 @@ import { Detail } from "./components/Detail/Detail";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Store from "./components/store/Store";
+import Cart  from "./components/Cart/Cart";
+
 
 function App() {
   return (
@@ -17,8 +19,9 @@ function App() {
       <HeaderMenu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/detail/:productId" element={<Detail />} />
+        <Route path="/detail/:productId" element={<Detail  />} />
         <Route path="/store" element={<Store/>}/>
+        <Route path="/cart" element={<Cart />}/>
       </Routes>
       <Footer />
     </div>
