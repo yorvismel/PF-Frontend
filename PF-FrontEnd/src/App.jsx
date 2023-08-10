@@ -10,21 +10,21 @@ import Footer from "./components/Footer/Footer";
 import { Detail } from "./components/Detail/Detail";
 import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
+// import Login from "./components/Login/Login";
 import Create from "./components/Create/Create";
 import Cart from "./components/Cart/Cart"
 
 function App() {
   const navigate = useNavigate(); // Obtiene la función de navegación
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de inicio de sesión
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de inicio de sesión
 
-  const handleLogin = (user) => {
-    // Simulate successful login for demonstration purposes
-    // In a real application, you would perform actual authentication here
-    console.log("Logged in user:", user);
-    setIsLoggedIn(true);
-    navigate("/home");
-  };
+  // const handleLogin = (user) => {
+  //   // Simulate successful login for demonstration purposes
+  //   // In a real application, you would perform actual authentication here
+  //   console.log("Logged in user:", user);
+  //   setIsLoggedIn(true);
+  //   navigate("/home");
+  // };
 
   return (
     <div className="toditotodito">
@@ -77,13 +77,13 @@ function App() {
         />
       </Routes>
 
-      <Routes>
+      {/* <Routes>
         <Route
           path="/"
           element={<Login onLogin={handleLogin} />} // Muestra el componente Login
         />
         
-      </Routes>
+      </Routes> */}
       
     </div>
   );
