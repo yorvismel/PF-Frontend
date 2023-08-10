@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchProductName } from "../../Redux/actions";
 import { Link } from "react-router-dom";
 
@@ -20,10 +20,13 @@ const SearchBar = () => {
 
     dispatch(searchProductName(searchTerm));
   };
+  const searchProduct = useSelector((state) => state.searchProduct); // Obtiene el estado searchProduct del store de Redux
+  console.log("Search Product in Header:", searchProduct)
 
   console.log("Search Term in SearchBar:", searchTerm);
 
   return (
+    
     <div className="search-bar">
       <div className="input-group mb-3">
         <input
