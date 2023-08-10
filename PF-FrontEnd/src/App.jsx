@@ -12,6 +12,7 @@ import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Create from "./components/Create/Create";
+import Cart from "./components/Cart/Cart"
 
 function App() {
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -36,6 +37,7 @@ function App() {
               <HeaderMenu />
               <Detail />
               <Footer />
+              <Cart />
             </>
           }
         />
@@ -50,7 +52,7 @@ function App() {
             </>
           }
         />
-
+      
         <Route
           path="/home"
           element={
@@ -80,7 +82,9 @@ function App() {
           path="/"
           element={<Login onLogin={handleLogin} />} // Muestra el componente Login
         />
+        
       </Routes>
+      
     </div>
   );
 }

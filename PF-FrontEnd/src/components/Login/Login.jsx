@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import style from "./Login.module.css";
+import './Login.css'
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "./firebaseConfig";
