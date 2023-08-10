@@ -77,13 +77,13 @@ function App() {
         />
       </Routes>
 
-      {/* <Routes>
+       <Routes>
         <Route
-          path="/"
-          element={<Login onLogin={handleLogin} />} // Muestra el componente Login
+          path="/cart"
+          element={<Cart />} // Muestra el componente Cart
         />
         
-      </Routes> */}
+      </Routes> 
       
     </div>
   );
