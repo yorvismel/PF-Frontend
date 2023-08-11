@@ -10,26 +10,35 @@ import Footer from "./components/Footer/Footer";
 import { Detail } from "./components/Detail/Detail";
 import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
-// import Login from "./components/Login/Login";
 import Create from "./components/Create/Create";
 import Cart from "./components/Cart/Cart"
+// imports para el login:
+import { useAuth0 } from "@auth0/auth0-react";
+import { LoginButton } from "./components/Login/Login";
+import { LogoutButton } from "./components/Login/Logout";
+import { Profile } from "./components/Login/Profile";
+import { GoHomeButton } from "./components/Login/GoHome";
 import PaymentSuccess from "./components/Payments/PaymentSuccess";
 
 function App() {
-  const navigate = useNavigate(); // Obtiene la función de navegación
-  // const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado de inicio de sesión
+  const { isAuthenticated } = useAuth0();
 
-  // const handleLogin = (user) => {
-  //   // Simulate successful login for demonstration purposes
-  //   // In a real application, you would perform actual authentication here
-  //   console.log("Logged in user:", user);
-  //   setIsLoggedIn(true);
-  //   navigate("/home");
-  // };
 
   return (
     <div className="toditotodito">
       <Routes>
+        <Route 
+          path="/"
+          element={isAuthenticated ? (
+            <>
+              <Profile/>
+              <LogoutButton/>
+              <GoHomeButton/>
+              </>
+          ) : ( 
+            <LoginButton/>
+          )}
+          />
         <Route
           path="/detail/:productId"
           element={
@@ -77,28 +86,6 @@ function App() {
           }
         />
       </Routes>
-
-       <Routes>
-        <Route
-          path="/cart"
-          element={
-            
-          <Cart />
-                  } // Muestra el componente Cart
-        />
-        
-      </Routes> 
-      <Routes>
-        <Route
-          path="/payments/success"
-          element={
-            
-          <PaymentSuccess />
-                  } // Muestra el componente Cart
-        />
-        
-      </Routes> 
-      
     </div>
   );
 }
