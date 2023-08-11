@@ -1,22 +1,66 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom"; // Importamos Link desde react-router-dom
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Cart.css";
-import { CartContext } from "./CartContext"; // Asegúrate de que la ruta sea correcta
+import { CartContext } from "./CartContext";
+import axios from 'axios';
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import PaymentSuccess from "../Payments/PaymentSuccess"; // Importa el componente PaymentSuccess
 
 const Cart = () => {
-  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext); // Consumir el contexto para obtener el estado y las funciones del carrito
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
 
-  // Función para calcular el total del carrito
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const [paymentError, setPaymentError] = useState(null);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+
   const calculateTotal = () => {
     return cartItems
       .reduce((total, item) => total + item.price * item.quantity, 0)
       .toFixed(2);
+      
   };
+  console.log(calculateTotal);
 
-  // Guardar el carrito en el localStorage
+  const handlePayment = async () => {
+    if (!stripe || !elements) {
+      console.error("Stripe o elements no están disponibles.");
+      return;
+    }
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/payments/create-checkout-session",
+        { cartItems }
+      );
+  
+      const data = response.data;
+  
+      if (data.sessionId) {
+        const result = await stripe.redirectToCheckout({
+          sessionId: data.sessionId,
+        });
+  
+        if (result.error) {
+          setPaymentError(result.error.message);
+          console.error("Error al redirigir al cliente a la página de pago:", result.error);
+        } else {
+          // Establecer el estado de paymentSuccess a verdadero si el pago es exitoso
+          setPaymentSuccess(true);
+        }
+      } else {
+        console.error("No se recibió una sessionId válida del servidor.");
+      }
+    } catch (error) {
+      console.error("Error en la solicitud al backend:", error.message);
+    }
+  };
+  
   const saveCartToLocalStorage = () => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
+
 
   return (
     <div className="cart-container">
@@ -52,9 +96,20 @@ const Cart = () => {
       <Link to="/store" className="cart-link" onClick={saveCartToLocalStorage}>
         Regresar
       </Link>
-      <Link>Pagar</Link>
+      <div className="payment-form">
+      {!paymentSuccess}
+        <button onClick={handlePayment}>Pagar</button>
+        {paymentError && <div className="payment-error">{paymentError}</div>}
+        
+        {paymentSuccess && <PaymentSuccess totalAmount={calculateTotal()} />}
+      </div>
     </div>
   );
 };
 
 export default Cart;
+
+
+
+
+

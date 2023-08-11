@@ -13,6 +13,7 @@ import Home from "./components/Home/Home";
 // import Login from "./components/Login/Login";
 import Create from "./components/Create/Create";
 import Cart from "./components/Cart/Cart"
+import PaymentSuccess from "./components/Payments/PaymentSuccess";
 
 function App() {
   const navigate = useNavigate(); // Obtiene la función de navegación
@@ -80,7 +81,20 @@ function App() {
        <Routes>
         <Route
           path="/cart"
-          element={<Cart />} // Muestra el componente Cart
+          element={
+            
+          <Cart />
+                  } // Muestra el componente Cart
+        />
+        
+      </Routes> 
+      <Routes>
+        <Route
+          path="/payments/success"
+          element={
+            
+          <PaymentSuccess />
+                  } // Muestra el componente Cart
         />
         
       </Routes> 
