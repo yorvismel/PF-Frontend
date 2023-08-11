@@ -11,7 +11,7 @@ import { Detail } from "./components/Detail/Detail";
 import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";
-import Cart from "./components/Cart/Cart"
+import Cart from "./components/Cart/Cart";
 // imports para el login:
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "./components/Login/Login";
@@ -23,22 +23,23 @@ import PaymentSuccess from "./components/Payments/PaymentSuccess";
 function App() {
   const { isAuthenticated } = useAuth0();
 
-
   return (
     <div className="toditotodito">
       <Routes>
-        <Route 
+        <Route
           path="/"
-          element={isAuthenticated ? (
-            <>
-              <Profile/>
-              <LogoutButton/>
-              <GoHomeButton/>
+          element={
+            isAuthenticated ? (
+              <>
+                <Profile />
+                <LogoutButton />
+                <GoHomeButton />
               </>
-          ) : ( 
-            <LoginButton/>
-          )}
-          />
+            ) : (
+              <LoginButton />
+            )
+          }
+        />
         <Route
           path="/detail/:productId"
           element={
@@ -47,11 +48,11 @@ function App() {
               <HeaderMenu />
               <Detail />
               <Footer />
-              <Cart />
-              <PaymentSuccess />
             </>
           }
         />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payments/success" element={<PaymentSuccess />} />
         <Route
           path="/store"
           element={
@@ -63,7 +64,7 @@ function App() {
             </>
           }
         />
-      
+
         <Route
           path="/home"
           element={
