@@ -26,20 +26,33 @@ function App() {
   return (
     <div className="toditotodito">
       <Routes>
-        <Route
-          path="/"
-          element={
-            isAuthenticated ? (
-              <>
-                <Profile />
-                <LogoutButton />
-                <GoHomeButton />
-              </>
-            ) : (
-              <LoginButton />
-            )
-          }
-        />
+        {isAuthenticated ? (
+          <>
+            <Route
+              path="/user"
+              element={
+                <>
+                  <Profile />
+                  <LogoutButton />
+                  <GoHomeButton />
+                </>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <>
+                  <Profile />
+                  <LogoutButton />
+                  <GoHomeButton />
+                </>
+              }
+            />
+          </>
+        ) : (
+          <Route path="/" element={<LoginButton />} />
+        )}
+
         <Route
           path="/detail/:productId"
           element={
