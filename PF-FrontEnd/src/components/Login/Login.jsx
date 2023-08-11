@@ -1,9 +1,10 @@
-// import React, { useState, useEffect, useRef } from "react";
-// import './Login.css'
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
-// import firebaseConfig from "./firebaseConfig";
-// import { checkUserData, getUser } from "../../Redux/actions.js";
-// import { Link, useNavigate } from "react-router-dom";
-// import { connect } from "react-redux";
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+
+export const LoginButton = () => {
+  const { loginWithRedirect } = useAuth0();
+
+  return <button onClick={() => loginWithRedirect()}>Login</button>;
+};
+
 
