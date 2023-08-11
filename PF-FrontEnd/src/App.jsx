@@ -18,6 +18,7 @@ import { LoginButton } from "./components/Login/Login";
 import { LogoutButton } from "./components/Login/Logout";
 import { Profile } from "./components/Login/Profile";
 import { GoHomeButton } from "./components/Login/GoHome";
+import PaymentSuccess from "./components/Payments/PaymentSuccess";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -47,6 +48,7 @@ function App() {
               <Detail />
               <Footer />
               <Cart />
+              <PaymentSuccess />
             </>
           }
         />
