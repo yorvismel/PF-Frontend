@@ -45,7 +45,7 @@ const HeaderMenu = () => {
               tablets & phones
             </a>
           </li>
-          <li> 
+          <li>
             <a class="dropdown-item mt-2" href="#">
               headphones
             </a>
@@ -58,7 +58,7 @@ const HeaderMenu = () => {
         </ul>
       </div>
       <div className="arro">
-        <NavLink className="home link" to="/">
+        <NavLink className="home link" to="/home">
           <p>Home</p>
         </NavLink>
         <NavLink className="store link" to="/store">
@@ -67,7 +67,11 @@ const HeaderMenu = () => {
         <NavLink className="contact link" to="/contact">
           <p>Contact</p>
         </NavLink>
+        <NavLink className="create" to="/create">
+          <p>create Product</p>
+        </NavLink>
       </div>
+      <div></div>
     </div>
   );
 };

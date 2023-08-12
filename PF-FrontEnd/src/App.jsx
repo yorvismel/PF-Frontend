@@ -19,6 +19,7 @@ import { LogoutButton } from "./components/Login/Logout";
 import { Profile } from "./components/Login/Profile";
 import { GoHomeButton } from "./components/Login/GoHome";
 import PaymentSuccess from "./components/Payments/PaymentSuccess";
+import Userpart from "./components/Login/Userpart";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -32,7 +33,7 @@ function App() {
               path="/user"
               element={
                 <>
-                  <Profile />
+                  <Userpart />
                   <LogoutButton />
                   <GoHomeButton />
                 </>
