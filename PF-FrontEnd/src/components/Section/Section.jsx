@@ -14,7 +14,7 @@ const Section = () => {
       <div className="containersvg">
         <Link to="/user">
           <div className="prueba">
-           <img className="redondita" src={user.picture} alt={user.name} />
+           <img className="redondita" src={user?.picture} alt={user?.name} />
             <p>user</p>
           </div>
         </Link>

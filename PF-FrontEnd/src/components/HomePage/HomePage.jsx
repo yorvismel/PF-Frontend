@@ -1,17 +1,14 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-
 import banner1 from "../../img/banner1.jpg";
 import "./homerPage.css";
 import mac from "../../img/lamac.jpg";
 import ipad from "../../img/ipad.jpg";
-import warch from "../../img/elwacho.jpg"
-import auriculares from "../../img/auriculares.jpg"
+import warch from "../../img/elwacho.jpg";
+import auriculares from "../../img/auriculares.jpg";
 
 const HomePage = () => {
- 
-
   return (
     <div>
       <section className="HomeWrapper py-4">
@@ -28,7 +25,7 @@ const HomePage = () => {
                   <h4>El tusi pa usted</h4>
                   <h5>SAMSUNG Buds 2</h5>
                   <p>from 50.00$</p>
-                  <Link className="buttonbuysito">
+                  <Link to="/store" className="buttonbuysito">
                     <a>Buy Now</a>
                   </Link>
                 </div>
@@ -50,7 +47,7 @@ const HomePage = () => {
                     <h4>new Arrival</h4>
                     <h5>Ipad Pro</h5>
                     <p>from 120.00$</p>
-                  </div>  
+                  </div>
                 </div>
                 <div className="smallBannerContainer  ">
                   <img src={warch} alt="mujemia" className=" lamac rounded-3" />
@@ -60,8 +57,12 @@ const HomePage = () => {
                     <p>from 80.00$</p>
                   </div>
                 </div>
-                  <div className="smallBannerContainer  ">
-                  <img src={auriculares} alt="mujemia" className=" lamac rounded-3" />
+                <div className="smallBannerContainer  ">
+                  <img
+                    src={auriculares}
+                    alt="mujemia"
+                    className=" lamac rounded-3"
+                  />
                   <div className="smallBannerContent ">
                     <h4>free shipment</h4>
                     <h5>airpods max</h5>
