@@ -4,6 +4,8 @@ import {
   GET_PRODUCTS,
   SEARCH_PRODUCT_NAME,
   GET_CATEGORIES,
+  SET_FILTERS,
+  GET_FILTERED_CATEGORIES,
 } from "./actions-types";
 
 export const fetchProducts = () => {
@@ -37,6 +39,45 @@ export const getcategories = () => {
     }
   };
 };
+export const setFilters = (filters) => {
+  return {
+    type: SET_FILTERS,
+    filters,
+  };
+};
+
+export const getFilteredCategories = (filters) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`https://pf-backend-nwu9.onrender.com/categories`);
+      if (!response.ok) {
+        throw new Error("Error al obtener las categorías");
+      }
+
+      const data = await response.json();
+      const filteredCategories = applyFilters(data, filters);
+
+      dispatch({
+        type: GET_FILTERED_CATEGORIES,
+        filteredCategories,
+      });
+    } catch (error) {
+      console.error("Error al obtener categorías filtradas:", error);
+    }
+  };
+};
+
+const applyFilters = (data, filters) => {
+  return data.filter((category) => {
+    if (filters.name) {
+      return category.toLowerCase().includes(filters.name.toLowerCase());
+    }
+    return true; // Si no hay filtro de nombre, retorna todas las categorías
+  });
+};
+
+
+
 export const postproducct = (productdata) => {
   return async (dispatch) => {
     try {

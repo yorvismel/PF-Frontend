@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Headermenu.css";
@@ -27,12 +28,12 @@ const HeaderMenu = () => {
           </li>
           <li>
             <a class="dropdown-item mt-2" href="#">
-              men's clothing
+              mens clothing
             </a>
           </li>
           <li>
             <a class="dropdown-item mt-2" href="#">
-              women's clothing
+              womens clothing
             </a>
           </li>
           <li>

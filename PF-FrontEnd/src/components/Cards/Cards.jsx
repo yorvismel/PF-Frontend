@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import "./Cards.css";
 import Rating from "react-rating-stars-component";
@@ -5,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../Redux/actions";
 
-const Cards = () => {
+const Cards = ({ selectedCategory }) => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   const searchProduct = useSelector((state) => state.searchProduct);
@@ -23,7 +24,6 @@ const Cards = () => {
       )
     : allProducts;
 
-  // Filtrar productos por rango de precios
   const productsInPriceRange =
     priceRange.min !== null || priceRange.max !== null
       ? filteredProductsBySearch.filter(
@@ -32,13 +32,41 @@ const Cards = () => {
         )
       : filteredProductsBySearch;
 
+      const filteredProductsByCategory = selectedCategory
+      ? productsInPriceRange.filter((product) => {
+          const isMatchingCategory = product.categories.includes(selectedCategory);
+          console.log(
+            "Product:", product.title,
+            "Selected Category:", selectedCategory,
+            "Is Matching Category:", isMatchingCategory
+          );
+          return isMatchingCategory;
+        })
+      : productsInPriceRange;
+    
+  
+    console.log("Filtered Products By Category:", filteredProductsByCategory)
+    
+    const filteredProductsByCategor = selectedCategory
+      ? allProducts.filter(
+          (product) =>
+            product.category &&
+            product.category.localeCompare(selectedCategory, undefined, {
+              sensitivity: "base",
+            }) === 0
+        )
+      : allProducts;
+
   const itemsPerPage = 15;
-  const totalItems = productsInPriceRange.length;
+  const totalItems = filteredProductsByCategor.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const visibleProducts = productsInPriceRange.slice(startIndex, endIndex);
+  const visibleProducts = filteredProductsByCategory.slice(
+    startIndex,
+    endIndex
+  );
 
   const handleRatingChange = (newRating) => {
     console.log(`El usuario ha revisado con ${newRating} estrellas`);
@@ -93,7 +121,7 @@ const Cards = () => {
 
       <div className="containertodosconstrella">
         <div className="cards-container">
-          {filteredProductsBySearch.length === 0 ? (
+          {visibleProducts.length === 0 ? (
             <div className="no-results">No se encontraron productos.</div>
           ) : (
             visibleProducts.map((product) => (
