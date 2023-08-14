@@ -1,35 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./section.css";
-import cart from "../../img/cart.svg";
-import person from "../../img/person.svg";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useCart } from "../Cart/CartContext";
+
 const Section = () => {
+  const { user } = useAuth0();
+  //El circulo rojo en el carrito de compras
+  const { notification } = useCart();
+
   return (
     <div className="principalContainer">
       <div className="containersvg">
-        <Link>
+        <Link to="/user">
           <div className="prueba">
-            <i class="bi bi-person-fill "></i>
-            <p>Log in</p>
+           <img className="redondita" src={user?.picture} alt={user?.name} />
+            <p>user</p>
           </div>
         </Link>
       </div>
       <div className="containersvg">
         <Link>
           <div className="prueba">
-            <i class="bi bi-heart"></i>
+            <i className="bi bi-heart"></i>
             <p>Favorite</p>
           </div>
         </Link>
       </div>
       <div className="containersvg">
-        <Link>
+        <Link to="/cart">
           <div className="prueba">
-            <i class="bi bi-minecart"></i>
-            <p>cart</p>
+            <i className="bi bi-minecart" onClick></i>
+            <p>Cart</p>
+            {notification && <span className="notification-dot" />}
           </div>
         </Link>
-        
       </div>
     </div>
   );

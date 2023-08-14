@@ -1,23 +1,33 @@
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Detail.css";
 import Rating from "react-rating-stars-component";
+import { CartContext } from "../Cart/CartContext";
 
 export const Detail = () => {
+  const { cartItems, addToCart,  } = useContext(CartContext);
+  const [notification, setNotification] = useState(false);
   const { productId } = useParams();
   const products = useSelector((state) => state.products);
 
-  console.log("Products from Redux:", products); 
+ 
 
   const product = products.find((p) => p.id === productId);
 
   const handleRatingChange = (newRating) => {
     console.log(`El usuario ha revisado con ${newRating} estrellas`);
   };
-  console.log("Selected Product:", product); 
-
+  const handleAddToCart = () => {
+    const existingItem = cartItems.find((item) => item.id === product.id);
+    if (existingItem) {
+      addToCart({ ...product, quantity: existingItem.quantity + 1 });
+    } else {
+      addToCart({ ...product, quantity: 1 });
+    }
+    setNotification(true); // Activamos la notificación
+  };
   if (!product) {
-    console.log("Product not found"); 
     return <div className="detail-container">Producto no encontrado</div>;
   }
 
@@ -33,31 +43,34 @@ export const Detail = () => {
         </div>
         <div className="container-content-detail">
           <h2 className="detail-title">{product.title}</h2>
-          <p className="detail-price">Price: ${product.price}</p>{" "}
-          {/* <p className="detail-rating">
-            Rating: {product.rating.rate} ({product.rating.count} reviews)
-          </p> */}
+          <p className="detail-price">Price: ${product.price}</p>
           <div className="card-footer">
-                <Rating
-                  count={5}
-                  value={product.rating.rate}
-                  size={24}
-                  onChange={handleRatingChange}
-                  a11y={true}
-                  isHalf={true}
-                  emptyIcon={<i className="far fa-star"></i>}
-                  halfIcon={<i className="fa fa-star-half-alt"></i>}
-                  fullIcon={<i className="fa fa-star"></i>}
-                  activeColor="#ffd700"
-                />
-              </div>
-          
+            <Rating
+              count={5}
+              value={product.rating.rate}
+              size={24}
+              onChange={handleRatingChange}
+              a11y={true}
+              isHalf={true}
+              emptyIcon={<i className="far fa-star"></i>}
+              halfIcon={<i className="fa fa-star-half-alt"></i>}
+              fullIcon={<i className="fa fa-star"></i>}
+              activeColor="#ffd700"
+            />
+          </div>
           <p className="detail-description">{product.description}</p>
           <div className="botoncitoaquel">
-            <button type="button" class="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={handleAddToCart}
+            >
               add to cart
-              <i class="bis bi-bag-plus"></i>
+              <i className="bis bi-bag-plus"></i>
             </button>
+            {notification && (
+              <p className="notification">Producto añadido al carrito</p>
+            )}
           </div>
         </div>
       </div>

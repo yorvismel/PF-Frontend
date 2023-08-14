@@ -16,7 +16,12 @@
   font-size: 1.5rem;
   color: white;
 }
-.bi-minecart {margin-left: 20px;
+.prueba img {
+  border-radius: 50%;
+  width: 50px;
+}
+.bi-minecart {
+  margin-left: 20px;
   font-size: 1.4rem;
   color: white;
 }
@@ -29,4 +34,13 @@
 .prueba p {
   margin-left: 10px;
   margin-top: 11px;
+}
+.notification-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: red;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
 }

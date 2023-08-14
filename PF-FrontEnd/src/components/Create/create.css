@@ -1,0 +1,98 @@
+/* create.css */
+
+.form-container {
+  max-width: 90%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  
+  border-radius: 4px;
+  box-shadow: 15 15px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgb(251, 234, 229);;
+}
+
+.product-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.input-section {
+  flex: 1;
+  padding-right: 50px;
+  width: 100%;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 400px;
+  width: 40%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-input {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.select-image-btn {
+  padding: 12px 24px;
+  background-color: #0d2532;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 40px;
+}
+
+.selected-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.select-image-btn:hover {
+  background-color: #1d5675;
+}
+.titulos {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: xx-large;
+  font-weight: 600;
+}
+.create-btn {
+  padding: 12px 24px;
+  background-color: #0d2532;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 300px;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+.create-btn:hover {
+  background-color: #1d5675;
+}
+
+/* Placeholder styles */
+.form-input::placeholder {
+  color: #aaa;
+}
