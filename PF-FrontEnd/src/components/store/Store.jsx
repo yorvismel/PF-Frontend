@@ -14,8 +14,12 @@ const Store = () => {
     <div className="store-wrapper home-wrapper-2 py-5">
       <div className="pruebitaFlex container-xxl">
         <div className="row">
-          <Filters onSelectCategory={setSelectedCategory} />
-          <Cards selectedCategory={selectedCategory} />
+          <div className="arrozconfiltros">
+            <Filters onSelectCategory={setSelectedCategory} />
+          </div>
+          <div className="arrozconpollito">
+            <Cards selectedCategory={selectedCategory} />
+          </div>
         </div>
       </div>
     </div>
