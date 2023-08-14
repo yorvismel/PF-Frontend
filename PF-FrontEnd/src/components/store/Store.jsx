@@ -8,8 +8,12 @@ const Store = () => {
     <div className="store-wrapper home-wrapper-2 py-5">
       <div className="pruebitaFlex container-xxl">
         <div className="row">
-          <Filters />
-          <Cards />
+          <div className="arrozconfiltros">
+            <Filters />
+          </div>
+          <div className="arrozconpollito">
+            <Cards />
+          </div>
         </div>
       </div>
     </div>

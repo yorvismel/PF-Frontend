@@ -33,9 +33,12 @@ function App() {
               path="/user"
               element={
                 <>
+                  <Header />
+                  <HeaderMenu />
                   <Userpart />
-                  <LogoutButton />
+
                   <GoHomeButton />
+                  <Footer />
                 </>
               }
             />
@@ -44,7 +47,7 @@ function App() {
               element={
                 <>
                   <Profile />
-                  <LogoutButton />
+
                   <GoHomeButton />
                 </>
               }

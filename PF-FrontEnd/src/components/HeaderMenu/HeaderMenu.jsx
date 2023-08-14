@@ -52,14 +52,14 @@ const HeaderMenu = () => {
           </li>
           <li>
             <a class="dropdown-item mt-2" href="#">
-              accessories{" "}
+              accessories
             </a>
           </li>
         </ul>
       </div>
       <div className="arro">
         <NavLink className="home link" to="/home">
-          <p>Home</p>
+          <p>Home </p>
         </NavLink>
         <NavLink className="store link" to="/store">
           <p>Our Store</p>
