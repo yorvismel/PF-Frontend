@@ -2,13 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 import { CartContext } from "./CartContext";
-import axios from 'axios';
+import { useDispatch } from "react-redux";
+import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import PaymentSuccess from "../Payments/PaymentSuccess"; // Importa el componente PaymentSuccess
 
+
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
-
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
 
@@ -16,51 +18,52 @@ const Cart = () => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const calculateTotal = () => {
-    return cartItems
-      .reduce((total, item) => total + item.price * item.quantity, 0)
-      .toFixed(2);
-      
+    const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    console.log("Total calculated:", total);
+    return total.toFixed(2);
   };
-  console.log(calculateTotal);
-
+  
+  
   const handlePayment = async () => {
     if (!stripe || !elements) {
       console.error("Stripe o elements no están disponibles.");
       return;
     }
-  
+
     try {
       const response = await axios.post(
-        "https://pf-backend-nwu9.onrender.com/payments/create-checkout-session",
+        "/payments/create-checkout-session",
         { cartItems }
       );
-   
+
       const data = response.data;
-  
+
       if (data.sessionId) {
         const result = await stripe.redirectToCheckout({
           sessionId: data.sessionId,
         });
-  
+
         if (result.error) {
           setPaymentError(result.error.message);
-          console.error("Error al redirigir al cliente a la página de pago:", result.error);
+          console.error(
+            "Error al redirigir al cliente a la página de pago:",
+            result.error
+          );
         } else {
-          // Establecer el estado de paymentSuccess a verdadero si el pago es exitoso
+          // El pago fue exitoso
           setPaymentSuccess(true);
+
+         
         }
-      } else {
-        console.error("No se recibió una sessionId válida del servidor.");
       }
     } catch (error) {
       console.error("Error en la solicitud al backend:", error.message);
     }
   };
-  
+
   const saveCartToLocalStorage = () => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
-
 
   return (
     <div className="cart-container">
@@ -78,13 +81,24 @@ const Cart = () => {
             <span className="cart-item-price">
               ${(item.price * item.quantity).toFixed(2)}
             </span>
-            <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+            <button
+              className="cart-quantity-button"
+              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+            >
               +
             </button>
-            <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+            <button
+              className="cart-quantity-button"
+              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+            >
               -
             </button>
-            <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+            <button
+              className="cart-remove-button"
+              onClick={() => removeFromCart(item.id)}
+            >
+              Eliminar
+            </button>
           </li>
         ))}
       </ul>
@@ -93,23 +107,23 @@ const Cart = () => {
         <span className="cart-total-amount">${calculateTotal()}</span>
       </div>
 
-      <Link to="/store" className="cart-link" onClick={saveCartToLocalStorage}>
+      <Link to="/store" className="regresar" onClick={saveCartToLocalStorage}>
         Regresar
       </Link>
       <div className="payment-form">
-      {!paymentSuccess}
-        <button onClick={handlePayment}>Pagar</button>
+        {!paymentSuccess && (
+          <button className="pay-button" onClick={handlePayment}>
+            Pagar
+          </button>
+        )}
         {paymentError && <div className="payment-error">{paymentError}</div>}
-        
-        {paymentSuccess && <PaymentSuccess totalAmount={calculateTotal()} />}
+
+        {paymentSuccess && (
+          <PaymentSuccess totalAmount={calculateTotal()} />
+        )}
       </div>
     </div>
   );
 };
 
 export default Cart;
-
-
-
-
-

@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../Redux/actions";
 
-const Cards = ({ selectedCategory }) => {
+const Cards = ({ selectedCategory, priceRange }) => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
   const searchProduct = useSelector((state) => state.searchProduct);
   const [currentPage, setCurrentPage] = useState(1);
-  const [priceRange, setPriceRange] = useState({ min: 0, max: Infinity });
+  // const [priceRange, setPriceRange] = useState({ min: 0, max: Infinity });
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -94,7 +94,7 @@ const Cards = ({ selectedCategory }) => {
 
   return (
     <>
-      <div className="filter-container">
+      {/* <div className="filter-container">
         <h3>Price</h3>
         <input
           type="number"
@@ -117,7 +117,7 @@ const Cards = ({ selectedCategory }) => {
           value={priceRange.max}
           onChange={handleMaxPriceChange}
         />
-      </div>
+      </div> */}
 
       <div className="containertodosconstrella">
         <div className="cards-container">
