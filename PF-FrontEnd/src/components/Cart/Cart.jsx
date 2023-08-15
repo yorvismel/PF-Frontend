@@ -78,13 +78,24 @@ const Cart = () => {
             <span className="cart-item-price">
               ${(item.price * item.quantity).toFixed(2)}
             </span>
-            <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+            <button
+              className="cart-quantity-button"
+              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+            >
               +
             </button>
-            <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+            <button
+              className="cart-quantity-button"
+              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+            >
               -
             </button>
-            <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+            <button
+              className="cart-remove-button"
+              onClick={() => removeFromCart(item.id)}
+            >
+              Eliminar
+            </button>
           </li>
         ))}
       </ul>
@@ -93,23 +104,23 @@ const Cart = () => {
         <span className="cart-total-amount">${calculateTotal()}</span>
       </div>
 
-      <Link to="/store" className="cart-link" onClick={saveCartToLocalStorage}>
+      <Link to="/store" className="regresar" onClick={saveCartToLocalStorage}>
         Regresar
       </Link>
       <div className="payment-form">
-      {!paymentSuccess}
-        <button onClick={handlePayment}>Pagar</button>
+        {!paymentSuccess && (
+          <button className="pay-button" onClick={handlePayment}>
+            Pagar
+          </button>
+        )}
         {paymentError && <div className="payment-error">{paymentError}</div>}
-        
-        {paymentSuccess && <PaymentSuccess totalAmount={calculateTotal()} />}
+
+        {paymentSuccess && (
+          <PaymentSuccess totalAmount={calculateTotal()} />
+        )}
       </div>
     </div>
   );
 };
 
 export default Cart;
-
-
-
-
-
