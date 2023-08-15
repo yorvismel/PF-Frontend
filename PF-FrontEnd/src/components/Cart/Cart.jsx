@@ -31,10 +31,10 @@ const Cart = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:3001/payments/create-checkout-session",
+        "https://pf-backend-nwu9.onrender.com/payments/create-checkout-session",
         { cartItems }
       );
-  
+   
       const data = response.data;
   
       if (data.sessionId) {
