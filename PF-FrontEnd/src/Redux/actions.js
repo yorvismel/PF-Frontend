@@ -6,6 +6,7 @@ import {
   GET_CATEGORIES,
   SET_FILTERS,
   GET_FILTERED_CATEGORIES,
+  SEND_EMAIL_REQUEST,
 } from "./actions-types";
 
 export const fetchProducts = () => {
@@ -91,6 +92,15 @@ export const postproducct = (productdata) => {
     } catch (error) {
       console.error("Error fetching products:", error);
     }
+  };
+};
+
+
+// actions.js
+export const sendPaymentConfirmationEmail = (toEmail, totalAmount) => {
+  return {
+    type: SEND_EMAIL_REQUEST,
+    payload: { toEmail, totalAmount }
   };
 };
 

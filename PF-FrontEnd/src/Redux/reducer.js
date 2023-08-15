@@ -5,6 +5,7 @@ import {
   POST_PRODUCT,
   SET_FILTERS,
   GET_FILTERED_CATEGORIES,
+  SEND_EMAIL_REQUEST
 } from "./actions-types";
 
 const initialState = {
@@ -15,6 +16,9 @@ const initialState = {
   postproduct: [],
   filters: {},
   filteredCategories: [],
+  sendingEmail: false,
+  emailSent: false,
+  error: null
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -59,6 +63,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         filteredCategories: action.filteredCategories,
       };
+      
+        case SEND_EMAIL_REQUEST:
+          return { ...state, sendingEmail: true };
+    
+        
+      
   }
 };
 
