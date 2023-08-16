@@ -21,6 +21,7 @@ import { GoHomeButton } from "./components/Login/GoHome";
 import PaymentSuccess from "./components/Payments/PaymentSuccess";
 import Userpart from "./components/Login/Userpart";
 
+import Admin from "./components/Admin/Admin";
 function App() {
   const { isAuthenticated } = useAuth0();
 
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         {isAuthenticated ? (
           <>
+        
             <Route
               path="/user"
               element={
@@ -70,6 +72,9 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payments/success" element={<PaymentSuccess />} />
+        <Route
+          path="/admin"
+          element={<Admin/>}/>
         <Route
           path="/store"
           element={
