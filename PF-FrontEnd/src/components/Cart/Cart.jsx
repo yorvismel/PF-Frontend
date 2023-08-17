@@ -1,12 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cart.css";
+import axios from 'axios'
 import { CartContext } from "./CartContext";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import PaymentSuccess from "../Payments/PaymentSuccess"; // Importa el componente PaymentSuccess
-
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
@@ -19,30 +18,28 @@ const Cart = () => {
 
   const calculateTotal = () => {
     const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-    console.log("Total calculated:", total);
     return total.toFixed(2);
   };
-  
-  
+
   const handlePayment = async () => {
     if (!stripe || !elements) {
       console.error("Stripe o elements no están disponibles.");
       return;
     }
-
+  
     try {
       const response = await axios.post(
-        " https://pf-frontend-weld.vercel.app/create-checkout-session",
+        "/payments/create-checkout-session",
         { cartItems }
       );
-
+  
       const data = response.data;
-
+  
       if (data.sessionId) {
         const result = await stripe.redirectToCheckout({
           sessionId: data.sessionId,
         });
-
+  
         if (result.error) {
           setPaymentError(result.error.message);
           console.error(
@@ -52,8 +49,6 @@ const Cart = () => {
         } else {
           // El pago fue exitoso
           setPaymentSuccess(true);
-
-         
         }
       }
     } catch (error) {
@@ -81,18 +76,20 @@ const Cart = () => {
             <span className="cart-item-price">
               ${(item.price * item.quantity).toFixed(2)}
             </span>
-            <button
-              className="cart-quantity-button"
-              onClick={() => updateQuantity(item.id, item.quantity + 1)}
-            >
-              +
-            </button>
-            <button
-              className="cart-quantity-button"
-              onClick={() => updateQuantity(item.id, item.quantity - 1)}
-            >
-              -
-            </button>
+            <div className="quantity-buttons">
+              <button
+                className="cart-quantity-button"
+                onClick={() => updateQuantity(item.id, item.quantity + 1)}
+              >
+                +
+              </button>
+              <button
+                className="cart-quantity-button"
+                onClick={() => updateQuantity(item.id, item.quantity - 1)}
+              >
+                -
+              </button>
+            </div>
             <button
               className="cart-remove-button"
               onClick={() => removeFromCart(item.id)}
@@ -111,16 +108,17 @@ const Cart = () => {
         Regresar
       </Link>
       <div className="payment-form">
-        {!paymentSuccess && (
-          <button className="pay-button" onClick={handlePayment}>
-            Pagar
-          </button>
-        )}
-        {paymentError && <div className="payment-error">{paymentError}</div>}
-
-        {paymentSuccess && (
+        {!paymentSuccess ? (
+          <>
+            {/* <CardElement className="card-element" /> */}
+            <button className="pay-button" onClick={handlePayment}>
+              Pagar
+            </button>
+          </>
+        ) : (
           <PaymentSuccess totalAmount={calculateTotal()} />
         )}
+        {paymentError && <div className="payment-error">{paymentError}</div>}
       </div>
     </div>
   );
