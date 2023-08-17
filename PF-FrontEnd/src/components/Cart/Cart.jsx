@@ -32,7 +32,7 @@ const Cart = () => {
 
     try {
       const response = await axios.post(
-        "/create-checkout-session",
+        " https://pf-frontend-weld.vercel.app/create-checkout-session",
         { cartItems }
       );
 
