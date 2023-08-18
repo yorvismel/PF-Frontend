@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../../Redux/actions";
-import "./Products.css"; // Asegúrate de que el archivo de estilos CSS esté correctamente vinculado
+import "../Products/Products.css"; // Asegúrate de que el archivo de estilos CSS esté correctamente vinculado
 
 const Products = () => { 
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
-
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
