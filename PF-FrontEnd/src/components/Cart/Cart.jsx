@@ -29,7 +29,7 @@ const Cart = () => {
   
     try {
       const response = await axios.post(
-        "payments/create-checkout-session",
+         "payments/create-checkout-session",
         { cartItems }
       );
   
