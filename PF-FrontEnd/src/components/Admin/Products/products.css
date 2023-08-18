@@ -1,0 +1,85 @@
+/* Products.css */
+
+.allcontainerProducts {
+  background-color: white;
+  width: 100%;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.lostituloss {
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.products-table {
+  border-radius: 5px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: white;
+  color: black;
+}
+
+.products-table th,
+.products-table td {
+  padding: 10px;
+  border: none; /* Quita las líneas de borde */
+  text-align: center;
+}
+
+.products-table th {
+  background-color: white;
+  color: black;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.edit-button {
+  background-color: #007bff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+  color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.page-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.page-button:disabled {
+  cursor: not-allowed;
+}
+
+.page-button:not(:last-child) {
+  margin-right: 5px;
+}

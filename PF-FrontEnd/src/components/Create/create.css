@@ -1,18 +1,27 @@
-/* create.css */
-
 .form-container {
-  max-width: 90%;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding: 40px;
-  
   border-radius: 4px;
-  box-shadow: 15 15px 15px rgba(0, 0, 0, 0.1);
-  background-color: rgb(251, 234, 229);;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+  background-color: rgb(251, 234, 229);
+  height: 85vh;
 }
-
+.button-container {
+  position: relative;
+ 
+}
+.completo{
+  width: 100%;
+}
+.create{
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.button-container button {
+  position: absolute;
+  top: -110px;
+  right: -380px;
+}
 .product-form {
   display: flex;
   justify-content: center;
@@ -21,7 +30,6 @@
 
 .input-section {
   flex: 1;
-  padding-right: 50px;
   width: 100%;
 }
 
@@ -30,7 +38,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   height: 400px;
   width: 40%;
 }
@@ -64,9 +71,11 @@
   margin-top: 10px;
   border-radius: 5px;
 }
+
 .select-image-btn:hover {
   background-color: #1d5675;
 }
+
 .titulos {
   width: 100%;
   display: flex;
@@ -75,6 +84,7 @@
   font-size: xx-large;
   font-weight: 600;
 }
+
 .create-btn {
   padding: 12px 24px;
   background-color: #0d2532;
@@ -92,7 +102,6 @@
   background-color: #1d5675;
 }
 
-/* Placeholder styles */
 .form-input::placeholder {
   color: #aaa;
 }

@@ -1,18 +1,42 @@
-import React from 'react';
-import './NavbarAdmin.css'; // Asegúrate de tener un archivo de estilos CSS separado
-import "./NavBarAdmin.css"
-const NavbarAdmin = () => {
-  return (
-    <div className="navbar">
-      <div className="logo">Logo</div>
-      <nav className="nav-links">
-        <a href="#" className="nav-link">Dashboard</a>
-        <a href="#" className="nav-link">Usuarios</a>
-        <a href="#" className="nav-link">Productos</a>
-        <a href="#" className="nav-link">Configuración</a>
-      </nav>
-    </div>
-  );
-}
+  import React from "react";
+  import { Link } from "react-router-dom";
+  import "./NavbarAdmin.css"; // Asegúrate de tener un archivo de estilos CSS separado
+  import Logo from "../../../img/Logo";
+  import { useAuth0 } from "@auth0/auth0-react";
+  const NavbarAdmin = () => {
+    const { logout } = useAuth0();
+    return (
+      <div className="navbar">
+        <div className="logoS">
+          <Logo />
+        </div>
+        <nav className="nav-links">
+          <Link to="/admin/dashboard" className="nav-link">
+            <i className="arrocitoss bi bi-house"></i>
+            Dashboard
+          </Link>
+          <Link to="/admin/users" className="nav-link">
+            <i className="arrocitoss bi bi-person-circle"></i>
+            Usuarios
+          </Link>
+          <Link to="/admin/products" className="nav-link">
+            <i className="arrocitoss bi bi-bag"></i>
+            Productos
+          </Link>
+          <Link to="/admin/create" className="nav-link">
+            <i className="arrocitoss bi bi-bag-plus"></i>
+            Create
+          </Link>
+        </nav>
+        <Link
+          onClick={() => logout({ returnTo: window.location.origin })}
+          className="nav-link"
+        >
+          <i className="arrocitoss bi bi-box-arrow-left"></i>
+          log out
+        </Link>
+      </div>
+    );
+  };
 
-export default NavbarAdmin;
+  export default NavbarAdmin;

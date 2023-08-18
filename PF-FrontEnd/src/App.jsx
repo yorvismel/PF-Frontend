@@ -12,6 +12,8 @@ import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";
 import Cart from "./components/Cart/Cart";
+import Products from "./components/Admin/Products/Produts";
+import NavbarAdmin from "./components/Admin/navbaradmin/NavbarAdmin";
 // imports para el login:
 import { useAuth0 } from "@auth0/auth0-react";
 import { LoginButton } from "./components/Login/Login";
@@ -30,7 +32,7 @@ function App() {
       <Routes>
         {isAuthenticated ? (
           <>
-        
+            z
             <Route
               path="/user"
               element={
@@ -58,7 +60,6 @@ function App() {
         ) : (
           <Route path="/" element={<LoginButton />} />
         )}
-
         <Route
           path="/detail/:productId"
           element={
@@ -72,9 +73,7 @@ function App() {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payments/success" element={<PaymentSuccess />} />
-        <Route
-          path="/admin"
-          element={<Admin/>}/>
+        <Route path="/admin/*" element={<Admin />} />
         <Route
           path="/store"
           element={
@@ -86,7 +85,6 @@ function App() {
             </>
           }
         />
-
         <Route
           path="/home"
           element={
@@ -107,6 +105,40 @@ function App() {
               <Create />
               <Footer />
             </>
+          }
+        />{" "}
+        <Route
+          path="/admin/products"
+          element={
+            <div className="mainadmin">
+              <NavbarAdmin />
+              <Products />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <div className="mainadmin">
+              <NavbarAdmin /> <div>Dashboard</div>
+            </div>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <div className="mainadmin">
+              <NavbarAdmin /> <div>users</div>
+            </div>
+          }
+        />
+        <Route
+          path="/admin/create"
+          element={
+            <div className="mainadmin">
+              <NavbarAdmin />
+              <Create />
+            </div>
           }
         />
       </Routes>
