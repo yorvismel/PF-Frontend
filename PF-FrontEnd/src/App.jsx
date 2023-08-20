@@ -12,7 +12,7 @@ import Store from "./components/store/Store";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";
 import Cart from "./components/Cart/Cart";
-import Products from "./components/Admin/Products/Products";
+import Products from "./components/Admin/Products/Produts";
 import NavbarAdmin from "./components/Admin/navbaradmin/NavbarAdmin";
 // imports para el login:
 import { useAuth0 } from "@auth0/auth0-react";
